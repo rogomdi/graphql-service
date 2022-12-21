@@ -1,0 +1,14 @@
+type Entity {
+    id: ID!
+    field: String
+}
+
+type Query {
+    "Test query"
+    getEntity(id: ID!): Entity
+}
+
+type Mutation {
+    "Test mutation"
+    updateEntity(id: ID! field: String!): Entity
+}
