@@ -1,0 +1,58 @@
+
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: rogomdi/
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Build JAR
+        run: |
+          ./gradlew clean build -x test
+  test:
+    name: Run Tests
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Test
+        run: |
+          ./gradlew test
+ 
+#  publish-docker:
+#    name: Publish Docker images
+#    runs-on: ubuntu-22.04
+#    needs: test
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Set up JDK
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'zulu'
+#          java-version: '17'
+#      - name: Login to Docker Hub
+#        run: docker login -u $GITHUB_ACTOR -p ${{ secrets.DOCKERHUB_PASSWORD }}
+#      - name: Build Docker image
+#        run: |
+#          ./gradlew bootBuildImage --imageName=${{ env.REGISTRY }${{ github.event.repository.name }}
+#      - name: Publish Docker image
+#        run: |
+#          docker push ${{ env.REGISTRY }}${{ github.event.repository.name }}
