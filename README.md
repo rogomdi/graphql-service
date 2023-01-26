@@ -8,7 +8,7 @@ Tech stack
 ---
 The project used the followig technologies:
 - Java 17
-- Spring Boot 3.0.1
+- Spring Boot 3.0
 - Github Actions
 
 
