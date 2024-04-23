@@ -8,7 +8,7 @@ Tech stack
 ---
 The project used the followig technologies:
 - Java 17
-- Spring Boot 3.0
+- Spring Boot 3
 - Github Actions
 
 
@@ -25,8 +25,8 @@ Software architecture
 
 Even though there is only boilerplate code for the graphql layer, the packages are structured in three layers, so we can start building our codebase in a more scalable, maintainable and testable way.
 
-- **Application layer**: is the only one that interacts with the user or any third party wanting to interact with our application. It is the **entrypoint**
+- **Presentation layer**: is the only one that interacts with the user or any third party wanting to interact with our application. It is the **entrypoint**
 
- - **Domain layer**: This layer will contain the business logic for the application. We define the interfaces for the repositories or any other external API.
+- **Business layer**: This layer will contain the business logic for the application. We define the interfaces for the repositories or any other external API.
 
-- **Infrastructure layer**: Contains all the implementations for the APIs or repositories defined on the domain layer and, if applies, any configuration parameters for our application. So, here we have all the infrastructure implementations that our application needs to work.
+- **Data Access layer**: Contains all the implementations for the APIs or repositories defined on the domain layer and, if applies, any configuration parameters for our application. So, here we have all the infrastructure implementations that our application needs to work.

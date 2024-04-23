@@ -1,9 +1,6 @@
-package com.rogomdi.template.application.model;
-
-import lombok.Data;
+package com.rogomdi.template.presentation.model;
 
 import java.util.UUID;
-
 
 public record Entity(UUID id, String field) {
 }
