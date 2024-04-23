@@ -1,14 +1,12 @@
-package com.rogomdi.template.application.graphql;
+package com.rogomdi.template.presentation.graphql;
 
+import com.rogomdi.template.presentation.graphql.TestController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.graphql.GraphQlTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.graphql.test.tester.GraphQlTester;
 
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @GraphQlTest(TestController.class)
 class TestControllerTest {

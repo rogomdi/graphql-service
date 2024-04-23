@@ -1,6 +1,6 @@
-package com.rogomdi.template.application.graphql;
+package com.rogomdi.template.presentation.graphql;
 
-import com.rogomdi.template.application.model.Entity;
+import com.rogomdi.template.presentation.model.Entity;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
